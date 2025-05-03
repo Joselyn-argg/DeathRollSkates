@@ -1,0 +1,147 @@
+:root {
+    --primary: #2A2D34;
+    --secondary: #efefef;
+    --accent1: #fff;
+    --accent2: #2EC4B6;
+    --accent3: #ed2224;
+    --transition-: rgba(0, 0, 0, 0.3);
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary);
+  }
+
+  .conteiner {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+    "header header"
+    "aside main"
+    "footer footer";
+    min-height: 100vh;
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  header, footer {
+    background-color: var(--primary);
+    color: var(--accent1);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1em;
+  }
+
+  header img {
+    height: 5rem;
+    margin-right: 8em;
+  }
+
+  header h1 {
+    transition: all 0.3s ease; 
+    cursor: pointer; 
+  }
+  
+  header h1:hover {
+    color: var(--accent3);
+  }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    grid-area: aside;
+    margin: 2em;
+  }
+
+  aside li {
+    padding: 0.5em;
+    list-style-type: none;
+  }
+
+  aside li:first-child {
+    font-weight: 600;
+  }
+
+  aside span {
+    color: var(--accent2);
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    grid-area: main;
+    margin: 1rem;
+  }
+
+ 
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+    background-color: var(--accent1);
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    box-shadow: 0 0.1rem 0.4rem var(--transition-);
+}
+
+  .card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .card-content {
+    margin: 1em;
+  }
+
+  .card p {
+    color: var(--accent2);
+    font-weight: 700;
+  }
+
+  footer {
+    justify-content: center;
+    grid-area: footer;
+  }
+
+  footer i {
+    margin: 0.5em;
+    color: var(--accent2);
+  }
+
+  @media (max-width:768px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .conteiner {
+        grid-template-columns: 35% 1fr;
+    }
+  }
+
+  @media (max-width:480px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .conteiner {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "header"
+        "aside"
+        "main"
+        "footer";
+    }
+  }
